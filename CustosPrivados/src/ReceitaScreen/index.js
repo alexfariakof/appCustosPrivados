@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-export default class LancamentoScreen extends Component {
+export default class ReceitaScreen extends Component {
 
   render() {
     return (
@@ -13,7 +13,7 @@ export default class LancamentoScreen extends Component {
           </TouchableOpacity>
         </View>
         <View>
-          <Text>Lançamentos</Text>
+          <Text>Receitas</Text>
         </View>
       </View>
     )

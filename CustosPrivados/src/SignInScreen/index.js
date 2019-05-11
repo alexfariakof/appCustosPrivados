@@ -7,7 +7,7 @@ export default class SignInScreen extends Component {
             <View style={styles.container}>
                 <Button
                     onPress={() => { this.props.navigation.navigate('Home') }}
-                    title="Learn More"
+                    title="Iniciar"
                     color="#841584"
                     accessibilityLabel="Entrar"
                 />
