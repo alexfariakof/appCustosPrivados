@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { StyleSheet, Button, View } from 'react-native';
+import { StyleSheet, Button, View, AsyncStorage } from 'react-native';
 
 export default class SignInScreen extends Component {
+    static navigationOptions = { header: null   }
     render() {
         return (
             <View style={styles.container}>
                 <Button
-                    onPress={() => { this.props.navigation.navigate('Home') }}
+                    onPress={() => { this.signInAsync(); }}
                     title="Iniciar"
                     color="#841584"
                     accessibilityLabel="Entrar"
@@ -14,6 +15,11 @@ export default class SignInScreen extends Component {
             </View>
         );
     }
+
+    signInAsync = async () => {
+        await AsyncStorage.setItem('token', 'abc');
+        this.props.navigation.navigate('App');
+    };
 }
 
 const styles = StyleSheet.create({

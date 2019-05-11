@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import DespesaScreen from '../DespesaScreen';  //Stack Nav
 import ReceitaScreen from '../ReceitaScreen'; //Stack Nav
 import LancamentoScreen from './TabMenu'; //Tab Nav
-import SignInScreen from '../SignInScreen'; //Stack Nav
+import SignOutLoadingScreen from '../SignInScreen/SignOutLoadingScreen'; //Stack Nav
 
 
 export default createDrawerNavigator({
@@ -30,7 +30,7 @@ export default createDrawerNavigator({
         }
     },
     Sair: {
-        screen: SignInScreen,
+        screen: SignOutLoadingScreen,
         navigationOptions: {
             drawerLabel: 'Sair',
             drawerIcon: ({ tintColor }) => <Icon name="sign-out-alt" size={17} />,
