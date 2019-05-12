@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, ImageBackground, TextInput, Image, TouchableOpacity, TouchableWithoutFeedback, ActivityIndicator, ScrollView } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
-
+import apiServices from '../Services/ApiServices'
 import assets from '../Services/Assets'
 import styles from '../Services/Styles'
-
-import apiServices from '../Services/ApiServices'
 
 class PrimeiroAcesso extends Component {
     static navigationOptions = { header: null }
@@ -34,7 +32,7 @@ class PrimeiroAcesso extends Component {
                 style={styles.background}
             ><ScrollView>
                     <View><TouchableWithoutFeedback onPress={() => { this.props.navigation.goBack(); }} ><Text>Voltar</Text></TouchableWithoutFeedback></View>
-                    <View style={styles.body}>
+                    <View style={styles.container}>
                         <TextInput style={styles.text} placeholder='Digite o seu nome' maxLength={20}
                             onChangeText={(nome) => this.setState({ nome })} value={this.state.nome} >
                         </TextInput>

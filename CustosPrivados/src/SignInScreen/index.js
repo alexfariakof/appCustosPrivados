@@ -47,7 +47,7 @@ export default class SignInScreen extends Component {
                             <Text style={{ color: 'red' }}> {this.state.erroMessage} </Text>
                         </View>
                         <View style={styles.ViewCentralizar} >
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('RecuperarSenha')} >
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('EsqueciSenha')} >
                                 <Text style={styles.linkButton}>Esqueci minha senha</Text>
                             </TouchableOpacity>
                         </View>
@@ -62,7 +62,7 @@ export default class SignInScreen extends Component {
         );
     }
 
-    signInAsync = async () => {
+    signInAsync = () => {
         //if (!this.isValid(this.state))
         //  return;
 
@@ -76,9 +76,9 @@ export default class SignInScreen extends Component {
         api = new apiServices();
         try {
             this.setState({ isLoading: true });
-            await api.post('/api/controleacesso/signin', body, async (json) => {
+               api.post('/api/controleacesso/signin', body, (json) => {
                 if (json.autenticated === true) {
-                    await AsyncStorage.setItem('@dpApiAccess', JSON.stringify(json));
+                    AsyncStorage.setItem('@dpApiAccess', JSON.stringify(json));
                     this.props.navigation.navigate('App');            
                 }
                 else

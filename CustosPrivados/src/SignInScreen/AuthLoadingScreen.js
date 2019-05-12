@@ -11,11 +11,12 @@ export default class AuthLoadingScreen extends Component {
     }
 
     _bootstrapAsync = async () => {
-        setTimeout(this._signIn, 3000);
+        setTimeout(this._signIn, 2000);
     };
 
     _signIn = async () => {
-        const userToken = await AsyncStorage.getItem('token');
+        const access = await AsyncStorage.getItem('@dpApiAccess');
+        const userToken = JSON.parse(access).accessToken;
         this.props.navigation.navigate(userToken ? 'App' : 'Auth');
     }
 
