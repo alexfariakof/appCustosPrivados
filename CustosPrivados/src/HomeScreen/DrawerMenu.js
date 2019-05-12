@@ -5,6 +5,7 @@ import DespesaScreen from '../DespesaScreen';  //Stack Nav
 import ReceitaScreen from '../ReceitaScreen'; //Stack Nav
 import LancamentoScreen from './TabMenu'; //Tab Nav
 import SignOutLoadingScreen from '../SignInScreen/SignOutLoadingScreen'; //Stack Nav
+import RelatorioScreen from '../RelatorioScreen';
 
 
 export default createDrawerNavigator({
@@ -26,9 +27,16 @@ export default createDrawerNavigator({
         screen: LancamentoScreen,
         navigationOptions: {
             drawerLabel: 'Lançamento',
-            drawerIcon: ({ tintColor }) => <Icon name="th-list" size={17} />,
+            drawerIcon: ({ tintColor }) => <Icon name="home" size={17} />,
         }
     },
+    Relatorio: {
+        screen: RelatorioScreen,
+        navigationOptions: {
+            drawerLabel: 'Relatório',
+            drawerIcon: ({ tintColor }) => <Icon name="poll" size={17} />,
+        }
+    },    
     Sair: {
         screen: SignOutLoadingScreen,
         navigationOptions: {

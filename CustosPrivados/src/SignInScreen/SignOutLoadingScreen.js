@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, AsyncStorage, StatusBar, View } from 'react-native';
-import masterStyles from '../Styles/Master'
+import { ImageBackground, ActivityIndicator, StatusBar, View } from 'react-native';
+import asset from '../Services/Assets'
+import styles from '../Services/Styles'
+import AsyncStorage from '@react-native-community/async-storage'
 
 export default class SignOutLoadingScreen extends Component {
     constructor(props) {
@@ -12,17 +14,23 @@ export default class SignOutLoadingScreen extends Component {
         setTimeout(this._signOut, 3000);
     };
 
-    _signOut = async  () => {
+    _signOut = async () => {
         await AsyncStorage.clear();
         this.props.navigation.navigate('Auth');
     }
 
     render() {
         return (
-            <View style={masterStyles.containerCentralizar}>
-                <ActivityIndicator />
-                <StatusBar barStyle="default" />
-            </View>
+            <ImageBackground
+                source={assets.background}
+                imageStyle={{ resizeMode: 'stretch' }}
+                style={styles.background}
+            >
+                <View style={styles.containerCentralizar}>
+                    <ActivityIndicator />
+                    <StatusBar barStyle="default" />
+                </View>
+            </ImageBackground>
         );
     }
 }
